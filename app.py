@@ -36,7 +36,7 @@ def generate_pie_chart(dataframe, column_name):
     :param column_name: Column to generate pie chart for.
     """
     pie_data = dataframe[column_name].value_counts()
-    fig = plt.pie(pie_data, labels=column_name, title="Pie Chart", autopct='%1.1f%%', startangle=90)
+    fig = plt.pie(pie_data, labels=column_name, autopct='%1.1f%%', startangle=90)
     fig.axis('equal')  # Equal aspect ratio ensures the pie chart is circular.
     return fig
 
