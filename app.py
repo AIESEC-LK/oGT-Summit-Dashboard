@@ -1,7 +1,7 @@
 import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
-import plotly.express as px
+# import plotly.express as px
 
 # ------------------------- Fetch Data from Google Sheets -------------------------
 
@@ -70,7 +70,7 @@ def generate_pie_chart(df, column_for_values, column_for_labels, title="Pie Char
             return
 
         # Generate the pie chart using Plotly
-        fig = px.pie(
+        fig = plt.pie(
             df,
             values=column_for_values,
             names=column_for_labels,
