@@ -16,18 +16,6 @@ def fetch_google_sheet_data(sheet_url):
 
 # ------------------------- Functions for Data Operations -------------------------
 
-def generate_line_chart(dataframe, column_name):
-    """
-    Generates a line chart based on a given column.
-    :param dataframe: pandas DataFrame.
-    :param column_name: Column to generate line chart for.
-    """
-    fig, ax = plt.subplots()
-    ax.plot(dataframe[column_name])
-    ax.set_xlabel('Index')
-    ax.set_ylabel(column_name)
-    return fig
-
 def show_pie_chart(df: pd.DataFrame, column_name: str):
     """
     Displays a pie chart for the specified column in a pandas DataFrame.
@@ -56,6 +44,7 @@ def show_pie_chart(df: pd.DataFrame, column_name: str):
     st.pyplot(fig)
 
 def show_line_chart(df: pd.DataFrame, column_name: str):
+
     """
     Displays a line chart for the specified column in a pandas DataFrame.
 
@@ -78,6 +67,36 @@ def show_line_chart(df: pd.DataFrame, column_name: str):
     ax.set_title(f"Line Chart for {column_name}")
     ax.set_xlabel("Index")
     ax.set_ylabel(column_name)
+
+    # Display the chart in Streamlit
+    st.pyplot(fig)
+
+def show_bar_chart(df: pd.DataFrame, column_name: str):
+    """
+    Displays a bar chart for the specified column in a pandas DataFrame.
+
+    Args:
+        df (pd.DataFrame): The DataFrame containing the data.
+        column_name (str): The column name for which to create a bar chart.
+    """
+    if column_name not in df.columns:
+        st.error(f"Column '{column_name}' not found in the DataFrame.")
+        return
+
+    # Count the occurrences of each unique value in the specified column
+    value_counts = df[column_name].value_counts()
+
+    if value_counts.empty:
+        st.warning("The column has no data to display.")
+        return
+
+    # Create the bar chart
+    fig, ax = plt.subplots()
+    ax.bar(value_counts.index, value_counts, color='skyblue')
+    ax.set_title(f"Bar Chart for {column_name}")
+    ax.set_xlabel("Categories")
+    ax.set_ylabel("Counts")
+    plt.xticks(rotation=45)
 
     # Display the chart in Streamlit
     st.pyplot(fig)

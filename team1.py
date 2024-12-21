@@ -1,4 +1,4 @@
-from app import fetch_google_sheet_data, show_pie_chart, show_line_chart
+from app import fetch_google_sheet_data, show_pie_chart, show_line_chart, show_bar_chart
 import streamlit as st
 import matplotlib.pyplot as plt
 
@@ -17,4 +17,4 @@ def page():
     # google_sheet_data = df[google_sheet_data]
 
     show_pie_chart(google_sheet_data, 'Home MC')
-    show_line_chart(google_sheet_data, 'Home MC')
+    show_bar_chart(google_sheet_data, 'Home MC')
