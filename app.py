@@ -39,3 +39,15 @@ def generate_pie_chart(dataframe, column_name):
     ax.pie(pie_data, labels=pie_data.index, autopct='%1.1f%%', startangle=90)
     ax.axis('equal')  # Equal aspect ratio ensures the pie chart is circular.
     return fig
+
+def generate_line_chart(dataframe, column_name):
+    """
+    Generates a line chart based on a given column.
+    :param dataframe: pandas DataFrame.
+    :param column_name: Column to generate line chart for.
+    """
+    fig, ax = plt.subplots()
+    ax.plot(dataframe[column_name])
+    ax.set_xlabel('Index')
+    ax.set_ylabel(column_name)
+    return fig
