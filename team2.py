@@ -18,5 +18,5 @@ def page():
     # google_sheet_data = df[google_sheet_data]
 
     # show_pie_chart(google_sheet_data, 'Home LC')
-    show_bar_chart(google_sheet_data, 'iGTa-APDtea')
+    show_bar_chart(google_sheet_data, 'iGTa-APD')
     # show_line_chart(google_sheet_data, 'Home LC')
