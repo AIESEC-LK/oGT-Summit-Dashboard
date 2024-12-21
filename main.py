@@ -2,6 +2,11 @@ import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
 from team1 import page as team1_page
+from team2 import page as team2_page
+from team3 import page as team3_page
+from team4 import page as team4_page
+from team5 import page as team5_page
+from team6 import page as team6_page
 
 #import from team files
 
@@ -18,25 +23,19 @@ def main():
             team1_page()
 
         with tab2:
-            st.subheader("Team 2")
-            st.write("This is the data for Team 2")
+            team2_page()
 
         with tab3:
-            st.subheader("Team 3")
-            st.write("This is the data for Team 3")
+            team3_page()
 
         with tab4:
-            st.subheader("Team 4")
-            st.write("This is the data for Team 4")
+            team4_page()
 
         with tab5:
-            st.subheader("Team 5")
-            st.write("This is the data for Team 5")
+            team5_page()
 
         with tab6:
-            st.subheader("Team 6")
-            st.write("This is the data for Team 6")
-        
+            team6_page()
 
     except Exception as e:
         st.error(f"Error fetching or processing data: {e}")
