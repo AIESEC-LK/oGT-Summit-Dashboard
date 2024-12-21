@@ -12,5 +12,3 @@ google_sheet_data = fetch_google_sheet_data(google_sheet_link)
 def page():   
     st.subheader(title)
     st.write(google_sheet_data)
-
-    generate_pie_chart(google_sheet_data, 'Home MC')
