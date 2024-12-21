@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 title = 'Team 2'
 
 # add a published csv link from google sheets
-google_sheet_link = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQvZjeq6jPoMOfeJIS11esCTGpE92W7QvC7XwLyGlZi23TYjgBL1aImsn_dW8iUxKSw_qhEDA_be59y/pub?gid=1847193799&single=true&output=csv'
+google_sheet_link = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTu6uF64b8Q-OXMSndIY_0a2jVZJjFnKFCgAtoRZ_XUhaianjQ30tdNBMfMUpRRrGxWc7FUVyNaK_1Y/pub?gid=2113157642&single=true&output=csv'
 #############################################################
 google_sheet_data = fetch_google_sheet_data(google_sheet_link)
 
