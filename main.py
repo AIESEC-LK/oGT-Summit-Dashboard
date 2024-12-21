@@ -7,10 +7,10 @@ from team1 import page as team1_page
 
 def main():
 
+    st.image("./White-Black-Logo.png")
     st.title("oGT Summit - Data Analytics")
     st.write("Data dashboard for the year 2024")
 
-    st.image("./White-Black-Logo.png")
 
     try:
         tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs(["Team 1", "Team 2", "Team 3", "Team 4", "Team 5", "Team 6"])

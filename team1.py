@@ -1,4 +1,4 @@
-from app import fetch_google_sheet_data, calculate_column_sums, generate_pie_chart
+from app import fetch_google_sheet_data, calculate_column_sums, generate_pie_chart, generate_line_chart
 import streamlit as st
 
 # add a title to your section
@@ -12,3 +12,5 @@ google_sheet_data = fetch_google_sheet_data(google_sheet_link)
 def page():   
     st.subheader(title)
     st.write(google_sheet_data)
+
+    generate_pie_chart(google_sheet_data, 'Home MC')
