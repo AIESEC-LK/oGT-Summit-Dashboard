@@ -1,4 +1,4 @@
-from app import fetch_google_sheet_data, show_pie_chart, show_line_chart, show_bar_chart
+from app import fetch_google_sheet_data, calculate_column_sums, generate_pie_chart, generate_line_chart
 import streamlit as st
 import matplotlib.pyplot as plt
 
@@ -14,9 +14,3 @@ google_sheet_data = fetch_google_sheet_data(google_sheet_link)
 def page():   
     st.subheader(title)
     st.write(google_sheet_data)
-
-    # google_sheet_data = df[google_sheet_data]
-
-    show_pie_chart(google_sheet_data, 'Home MC')
-    show_bar_chart(google_sheet_data, 'Home MC')
-    # show_line_chart(google_sheet_data, 'Home MC')
