@@ -3,7 +3,7 @@ import streamlit as st
 import matplotlib.pyplot as plt
 
 # add a title to your section
-title = 'Team 1'
+title = 'Team 5'
 
 # add a published csv link from google sheets
 google_sheet_link = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQvZjeq6jPoMOfeJIS11esCTGpE92W7QvC7XwLyGlZi23TYjgBL1aImsn_dW8iUxKSw_qhEDA_be59y/pub?gid=1847193799&single=true&output=csv'
