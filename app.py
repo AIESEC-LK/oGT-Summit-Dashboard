@@ -29,17 +29,17 @@ def calculate_column_sums(dataframe):
     }
     return column_sums
 
-# def generate_pie_chart(dataframe, column_name):
-#     """
-#     Generates a pie chart based on a given column.
-#     :param dataframe: pandas DataFrame.
-#     :param column_name: Column to generate pie chart for.
-#     """
-#     pie_data = dataframe[column_name].value_counts()
-#     fig, ax = plt.subplots()
-#     ax.pie(pie_data, labels=pie_data.index, autopct='%1.1f%%', startangle=90)
-#     ax.axis('equal')  # Equal aspect ratio ensures the pie chart is circular.
-#     return fig
+def generate_pie_chart(dataframe, column_name):
+    """
+    Generates a pie chart based on a given column.
+    :param dataframe: pandas DataFrame.
+    :param column_name: Column to generate pie chart for.
+    """
+    pie_data = dataframe[column_name].value_counts()
+    fig, ax = plt.subplots()
+    ax.pie(pie_data, labels=pie_data.index, autopct='%1.1f%%', startangle=90)
+    ax.axis('equal')  # Equal aspect ratio ensures the pie chart is circular.
+    return fig
 
 def generate_line_chart(dataframe, column_name):
     """
@@ -53,30 +53,30 @@ def generate_line_chart(dataframe, column_name):
     ax.set_ylabel(column_name)
     return fig
 
-def generate_pie_chart(df, column_for_values, column_for_labels, title="Pie Chart"):
-    """
-    Function to generate a pie chart using Plotly and display it in a Streamlit app.
+# def generate_pie_chart(df, column_for_values, column_for_labels, title="Pie Chart"):
+#     """
+#     Function to generate a pie chart using Plotly and display it in a Streamlit app.
 
-    Parameters:
-    - df (pd.DataFrame): The input DataFrame.
-    - column_for_values (str): The column name to use for values in the pie chart.
-    - column_for_labels (str): The column name to use for labels in the pie chart.
-    - title (str): Title of the pie chart. Default is "Pie Chart".
-    """
-    try:
-        # Validate inputs
-        if column_for_values not in df.columns or column_for_labels not in df.columns:
-            st.error("Selected columns are not available in the DataFrame.")
-            return
+#     Parameters:
+#     - df (pd.DataFrame): The input DataFrame.
+#     - column_for_values (str): The column name to use for values in the pie chart.
+#     - column_for_labels (str): The column name to use for labels in the pie chart.
+#     - title (str): Title of the pie chart. Default is "Pie Chart".
+#     """
+#     try:
+#         # Validate inputs
+#         if column_for_values not in df.columns or column_for_labels not in df.columns:
+#             st.error("Selected columns are not available in the DataFrame.")
+#             return
 
-        # Generate the pie chart using Plotly
-        fig = plt.pie(
-            df,
-            values=column_for_values
-            # names=column_for_labels,
-            # title=title,
-        )
-        # Display the chart
-        st.plotly_chart(fig)
-    except Exception as e:
-        st.error(f"An error occurred: {e}")
+#         # Generate the pie chart using Plotly
+#         fig = plt.pie(
+#             df,
+#             values=column_for_values
+#             # names=column_for_labels,
+#             # title=title,
+#         )
+#         # Display the chart
+#         st.plotly_chart(fig)
+#     except Exception as e:
+#         st.error(f"An error occurred: {e}")
