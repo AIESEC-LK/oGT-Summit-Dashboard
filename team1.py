@@ -15,4 +15,4 @@ def page():
 
     # google_sheet_data = df[google_sheet_data]
 
-    generate_pie_chart(google_sheet_data, 'Home MC')
+    generate_pie_chart(google_sheet_data, 'Home MC', 'Home MC', title="Pie Chart")
