@@ -1,4 +1,4 @@
-from app import fetch_google_sheet_data, generate_line_chart
+from app import fetch_google_sheet_data, show_pie_chart, show_line_chart, show_bar_chart
 import streamlit as st
 import matplotlib.pyplot as plt
 
