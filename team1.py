@@ -1,5 +1,6 @@
 from app import fetch_google_sheet_data, calculate_column_sums, generate_pie_chart, generate_line_chart
 import streamlit as st
+import matplotlib.pyplot as plt
 
 # add a title to your section
 title = 'Team 1'
@@ -15,4 +16,4 @@ def page():
 
     # google_sheet_data = df[google_sheet_data]
 
-    generate_pie_chart(google_sheet_data, 'Home MC', 'Home MC', title="Pie Chart")
+    plt.show(generate_pie_chart(google_sheet_data, 'Home MC'))
