@@ -1,4 +1,4 @@
-from app import fetch_google_sheet_data, calculate_column_sums, generate_pie_chart, generate_line_chart
+from app import fetch_google_sheet_data, generate_line_chart
 import streamlit as st
 import matplotlib.pyplot as plt
 
