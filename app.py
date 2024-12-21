@@ -37,7 +37,7 @@ def generate_pie_chart(dataframe, column_name):
     """
     pie_data = dataframe[column_name].value_counts()
     fig = plt.pie(pie_data, labels=column_name, autopct='%1.1f%%', startangle=90)
-    fig.axis('equal')  # Equal aspect ratio ensures the pie chart is circular.
+    # fig.axis('equal')  # Equal aspect ratio ensures the pie chart is circular.
     return fig
 
 def generate_line_chart(dataframe, column_name):
