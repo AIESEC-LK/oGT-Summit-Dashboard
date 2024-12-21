@@ -92,6 +92,11 @@ def show_bar_chart(df: pd.DataFrame, column_name: str):
 
     # Create the bar chart
     fig, ax = plt.subplots()
-    ax.pie(pie_data, labels=pie_data.index, autopct='%1.1f%%', startangle=90)
-    ax.axis('equal')  # Equal aspect ratio ensures the pie chart is circular.
-    return fig
+    ax.bar(value_counts.index, value_counts, color='skyblue')
+    ax.set_title(f"Bar Chart for {column_name}")
+    ax.set_xlabel("Categories")
+    ax.set_ylabel("Counts")
+    plt.xticks(rotation=45)
+
+    # Display the chart in Streamlit
+    st.pyplot(fig)
