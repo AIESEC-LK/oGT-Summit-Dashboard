@@ -16,30 +16,6 @@ def fetch_google_sheet_data(sheet_url):
 
 # ------------------------- Functions for Data Operations -------------------------
 
-def calculate_column_sums(dataframe):
-    """
-    Calculates the sum of each column.
-    Replace 'column1', 'column2', etc., with actual column names from the sheet.
-    """
-    column_sums = {
-        'Sum of Column 1': dataframe['column1'].sum(),  # Replace 'column1' with actual column name
-        'Sum of Column 2': dataframe['column2'].sum(),  # Replace 'column2' with actual column name
-        'Sum of Column 3': dataframe['column3'].sum(),  # Replace 'column3' with actual column name
-        'Sum of Column 4': dataframe['column4'].sum()   # Replace 'column4' with actual column name
-    }
-    return column_sums
-
-def generate_pie_chart(dataframe, column_name):
-    """
-    Generates a pie chart based on a given column.
-    :param dataframe: pandas DataFrame.
-    :param column_name: Column to generate pie chart for.
-    """
-    pie_data = dataframe[column_name].value_counts()
-    fig = plt.pie(pie_data, labels=column_name, autopct='%1.1f%%', startangle=90)
-    # fig.axis('equal')  # Equal aspect ratio ensures the pie chart is circular.
-    return fig
-
 def generate_line_chart(dataframe, column_name):
     """
     Generates a line chart based on a given column.
@@ -79,31 +55,29 @@ def show_pie_chart(df: pd.DataFrame, column_name: str):
     # Display the chart in Streamlit
     st.pyplot(fig)
 
+def show_line_chart(df: pd.DataFrame, column_name: str):
+    """
+    Displays a line chart for the specified column in a pandas DataFrame.
 
-# def generate_pie_chart(df, column_for_values, column_for_labels, title="Pie Chart"):
-#     """
-#     Function to generate a pie chart using Plotly and display it in a Streamlit app.
+    Args:
+        df (pd.DataFrame): The DataFrame containing the data.
+        column_name (str): The column name for which to create a line chart.
+    """
+    if column_name not in df.columns:
+        st.error(f"Column '{column_name}' not found in the DataFrame.")
+        return
 
-#     Parameters:
-#     - df (pd.DataFrame): The input DataFrame.
-#     - column_for_values (str): The column name to use for values in the pie chart.
-#     - column_for_labels (str): The column name to use for labels in the pie chart.
-#     - title (str): Title of the pie chart. Default is "Pie Chart".
-#     """
-#     try:
-#         # Validate inputs
-#         if column_for_values not in df.columns or column_for_labels not in df.columns:
-#             st.error("Selected columns are not available in the DataFrame.")
-#             return
+    # Check if the column contains numeric data
+    if not pd.api.types.is_numeric_dtype(df[column_name]):
+        st.error(f"Column '{column_name}' is not numeric and cannot be used for a line chart.")
+        return
 
-#         # Generate the pie chart using Plotly
-#         fig = plt.pie(
-#             df,
-#             values=column_for_values
-#             # names=column_for_labels,
-#             # title=title,
-#         )
-#         # Display the chart
-#         st.plotly_chart(fig)
-#     except Exception as e:
-#         st.error(f"An error occurred: {e}")
+    # Create the line chart
+    fig, ax = plt.subplots()
+    ax.plot(df[column_name], marker='o')
+    ax.set_title(f"Line Chart for {column_name}")
+    ax.set_xlabel("Index")
+    ax.set_ylabel(column_name)
+
+    # Display the chart in Streamlit
+    st.pyplot(fig)
