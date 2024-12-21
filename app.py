@@ -72,9 +72,9 @@ def generate_pie_chart(df, column_for_values, column_for_labels, title="Pie Char
         # Generate the pie chart using Plotly
         fig = plt.pie(
             df,
-            values=column_for_values,
-            names=column_for_labels,
-            title=title,
+            values=column_for_values
+            # names=column_for_labels,
+            # title=title,
         )
         # Display the chart
         st.plotly_chart(fig)
